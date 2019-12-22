@@ -21,5 +21,7 @@ int main()
 void CountDown()
 {
     InitalCount = GetInitialTime();
+    CountDownStart(); //计时开始（即打开SysTick中断）
+    
     
 }
