@@ -9,7 +9,7 @@
 #include "misc.h"
 #include <stdio.h>
 
-typedef struct Time
+typedef struct
 {
     int Hour;
     int Minute;

@@ -27,8 +27,7 @@ int main()
         Timer();
         break;
     }
-		
-		return 0;
+	return 0;
 }
 
 int GetSelectedFuntion()
