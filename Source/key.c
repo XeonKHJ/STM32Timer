@@ -17,6 +17,35 @@ void KEY_Config()
 	GPIO_Init(GPIOE, &GPIO_InitStructure);
 }
 
+void KEY_IntrConfig()
+{
+	EXTI_InitTypeDef EXTI_InitStructure;
+	RCC_APB2PeriphClockCmd(RCC_APB2Periph_AFIO, ENABLE);
+	GPIO_EXTILineConfig(GPIO_PortSourceGPIOE, GPIO_PinSource4);
+
+	//指明EXTI线
+	EXTI_InitStructure.EXTI_Line = EXTI_Line4;
+	//指明工作模式
+	EXTI_InitStructure.EXTI_Mode = EXTI_Mode_Interrupt;
+	//指明触发有效边缘
+	EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Falling;
+	//允许中断
+	EXTI_InitStructure.EXTI_LineCmd = ENABLE;
+	EXTI_Init(&EXTI_InitStructure);
+
+
+	GPIO_EXTILineConfig(GPIO_PortSourceGPIOE, GPIO_PinSource3);
+	//指明EXTI线
+	EXTI_InitStructure.EXTI_Line = EXTI_Line3;
+	//指明工作模式
+	EXTI_InitStructure.EXTI_Mode = EXTI_Mode_Interrupt;
+	//指明触发有效边缘
+	EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Falling;
+	//允许中断
+	EXTI_InitStructure.EXTI_LineCmd = ENABLE;
+	EXTI_Init(&EXTI_InitStructure);
+}
+
 void Key1Release()
 {
 	GPIO_ResetBits(GPIOB, GPIO_Pin_4);

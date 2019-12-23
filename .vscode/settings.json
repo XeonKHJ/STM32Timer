@@ -4,6 +4,7 @@
         "usart1.h": "c",
         "stm32f10x_usart.h": "c",
         "stm32f10x_gpio.h": "c",
-        "stm32f10x.h": "c"
+        "stm32f10x.h": "c",
+        "exti.h": "c"
     }
 }

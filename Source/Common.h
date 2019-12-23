@@ -5,6 +5,9 @@
 #include "stm32f10x_gpio.h"
 #include "stm32f10x_usart.h"
 #include "stm32f10x_rcc.h"
+#include "stm32f10x_exti.h"
+#include "misc.h"
+#include <stdio.h>
 
 typedef struct Time
 {
@@ -20,5 +23,5 @@ void AddOneSecond(Time * timePtr);
 void MinuesOneSecond(Time * timePtr);
 void DisplayContent(char * content);
 void InitializeTime(Time * timePtr);
-
+int IsTimeZero(Time time);
 #endif

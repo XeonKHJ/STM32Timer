@@ -2,17 +2,20 @@
 #include "led.h"
 #include "key.h"
 #include "usart1.h"
+#include "exti.h"
 
-void CountDown();
-void InitiallizeComponents();
-void ShowMenu();
-void CountDown();
-void Timer();
-int GetSelectedFuntion();
+void CountDown(void);
+void InitiallizeComponents(void);
+void ShowMenu(void);
+void CountDown(void);
+void Timer(void);
+int GetSelectedFuntion(void);
 
 int main()
 {
     InitiallizeComponents();
+	
+	while(1);
     ShowMenu();
     int functionNo = GetSelectedFuntion();
     switch (functionNo)
@@ -24,6 +27,8 @@ int main()
         Timer();
         break;
     }
+		
+		return 0;
 }
 
 int GetSelectedFuntion()
@@ -38,6 +43,13 @@ void InitiallizeComponents()
     LED_Config();
     KEY_Config();
     USART1_Config();
+
+    //开中断
+    NVIC_Config(EXTI3_IRQn, 0, 0);
+    NVIC_Config(EXTI4_IRQn, 1, 0);
+
+    //配置KEY的中断
+    KEY_IntrConfig();
 }
 
 void ShowMenu()

@@ -4,7 +4,7 @@
  *      *** Do not modify ! ***
  *
  * Project: 'STM32Timer' 
- * Target:  'TImer' 
+ * Target:  'Timer' 
  */
 
 #ifndef RTE_COMPONENTS_H

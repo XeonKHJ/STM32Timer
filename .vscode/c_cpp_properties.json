@@ -11,7 +11,8 @@
             "defines": [
                 "_DEBUG",
                 "UNICODE",
-                "_UNICODE"
+                "_UNICODE",
+                "STM32F10X_HD"
             ],
             "cStandard": "c11",
             "intelliSenseMode": "msvc-x64"
