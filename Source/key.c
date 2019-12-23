@@ -1,6 +1,5 @@
 #include "key.h"
-#include "stm32f10x_gpio.h"
-#include "stm32f10x_rcc.h"
+#include "Common.h"
 //初始化KEY
 void KEY_Config()
 {

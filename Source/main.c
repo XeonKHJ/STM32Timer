@@ -1,9 +1,17 @@
 #include "Common.h"
+#include "led.h"
+#include "key.h"
+#include "usart1.h"
 
 void CountDown();
+void InitiallizeComponents();
+void ShowMenu();
+void CountDown();
+void Timer();
 
 int main()
 {
+    InitiallizeComponents();
     ShowMenu();
     int functionNo = GetSelectedFuntion();
     switch (functionNo)
@@ -18,10 +26,42 @@ int main()
     }
 }
 
+void InitiallizeComponents()
+{
+    LED_Config();
+    KEY_Config();
+    USART1_Config();
+}
+
+void ShowMenu()
+{
+    char menu[] = "STM32Timer\n1. CountDown\n2. Timer\nOther. Exit\n";
+    DisplayContent(menu);
+}
+
+Time GetInitialTime()
+{
+    Time initialTime = {0,0,0};
+    printf("Enter second \n");
+    scanf("%d", &(initialTime.Second));
+    printf("Enter minute \n");
+    scanf("%d", &(initialTime.Minute));
+    printf("Enter hour \n");
+    scanf("%d", &(initialTime.Hour));
+    return initialTime;
+}
+
 void CountDown()
 {
-    InitalCount = GetInitialTime();
-    CountDownStart(); //计时开始（即打开SysTick中断）
+    TimeToCount = GetInitialTime();
     
-    
+    while (!IsTimerStoped && !IsTimeZero(TimeToCount))
+    {
+        MinuesOneSecond(&TimeToCount);
+    }
+}
+
+void Timer()
+{
+    InitializeTime(&TimeToCount);
 }
