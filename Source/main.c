@@ -8,6 +8,7 @@ void InitiallizeComponents();
 void ShowMenu();
 void CountDown();
 void Timer();
+int GetSelectedFuntion();
 
 int main()
 {
@@ -21,9 +22,15 @@ int main()
         break;
     case 2:
         Timer();
-    default:
-        Exit();
+        break;
     }
+}
+
+int GetSelectedFuntion()
+{
+    int input;
+    scanf("%d", &input);
+    return input;
 }
 
 void InitiallizeComponents()
