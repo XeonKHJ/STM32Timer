@@ -10,24 +10,43 @@ void ShowMenu(void);
 void CountDown(void);
 void Timer(void);
 int GetSelectedFuntion(void);
+void StartTimer();
+void StopTimer();
 
 int main()
 {
     InitiallizeComponents();
-	
-	while(1);
-    ShowMenu();
-    int functionNo = GetSelectedFuntion();
-    switch (functionNo)
+
+    while (!IsTimerStoped)
     {
-    case 1:
-        CountDown();
-        break;
-    case 2:
-        Timer();
-        break;
+        ShowMenu();
+        int functionNo = GetSelectedFuntion();
+        switch (functionNo)
+        {
+        case 1:
+            TimerHandler = CountDown;
+            break;
+        case 2:
+            Timer();
+            break;
+        }
+        while(!IsTimerStoped);
+
+        //停止SysTick的中断
+        StopTimer();
     }
-	return 0;
+
+    return 0;
+}
+
+void StartTimer()
+{
+
+}
+
+void StopTimer()
+{
+    
 }
 
 int GetSelectedFuntion()
@@ -59,7 +78,7 @@ void ShowMenu()
 
 Time GetInitialTime()
 {
-    Time initialTime = {0,0,0};
+    Time initialTime = {0, 0, 0};
     printf("Enter second \n");
     scanf("%d", &(initialTime.Second));
     printf("Enter minute \n");
@@ -72,7 +91,7 @@ Time GetInitialTime()
 void CountDown()
 {
     TimeToCount = GetInitialTime();
-    
+
     while (!IsTimerStoped && !IsTimeZero(TimeToCount))
     {
         MinuesOneSecond(&TimeToCount);

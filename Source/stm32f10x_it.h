@@ -29,6 +29,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f10x.h"
+#include "Common.h"
 #include "led.h"
 #include "key.h"
 /* Exported types ------------------------------------------------------------*/
@@ -47,6 +48,7 @@ void PendSV_Handler(void);
 void SysTick_Handler(void);
 void EXTI3_Handler(void);
 void EXTI4_Handler(void);
+extern void (*TimerHandler)(void);
 
 #ifdef __cplusplus
 }

@@ -130,6 +130,7 @@ void PendSV_Handler(void)
 }
 #endif
 
+void (*TimerHandler)(void);
 /**
   * @brief  This function handles SysTick Handler.
   * @param  None
@@ -138,6 +139,7 @@ void PendSV_Handler(void)
 #ifndef RTE_CMSIS_RTOS_RTX
 void SysTick_Handler(void)
 {
+	TimerHandler();
 }
 #endif
 /******************************************************************************/
@@ -157,8 +159,11 @@ void EXTI3_IRQHandler(void)
   if (EXTI_GetITStatus(EXTI_Line3) != RESET)
   {
     LED_On(0);
-    Delay(0xffff);
-    LED_Off(0);
+
+    DisplayContent("TimerPaused\n");
+    
+    scanf("%d", &IsTimerStoped);
+
     EXTI_ClearITPendingBit(EXTI_Line3);
   }
 }
