@@ -1,11 +1,11 @@
 /**
   ******************************************************************************
-  * @file    Project/STM32F10x_StdPeriph_Template/stm32f10x_it.c 
+  * @file    Project/STM32F10x_StdPeriph_Template/stm32f10x_it.c
   * @author  MCD Application Team
   * @version V3.5.0
   * @date    08-April-2011
   * @brief   Main Interrupt Service Routines.
-  *          This file provides template for all exceptions handler and 
+  *          This file provides template for all exceptions handler and
   *          peripherals interrupt service routine.
   ******************************************************************************
   * @attention
@@ -21,28 +21,28 @@
   ******************************************************************************
   */
 
-/* Includes ------------------------------------------------------------------*/
+  /* Includes ------------------------------------------------------------------*/
 #include "stm32f10x_it.h"
 /** @addtogroup STM32F10x_StdPeriph_Template
   * @{
   */
 
-/* Private typedef -----------------------------------------------------------*/
-/* Private define ------------------------------------------------------------*/
-/* Private macro -------------------------------------------------------------*/
-/* Private variables ---------------------------------------------------------*/
-/* Private function prototypes -----------------------------------------------*/
-/* Private functions ---------------------------------------------------------*/
+  /* Private typedef -----------------------------------------------------------*/
+  /* Private define ------------------------------------------------------------*/
+  /* Private macro -------------------------------------------------------------*/
+  /* Private variables ---------------------------------------------------------*/
+  /* Private function prototypes -----------------------------------------------*/
+  /* Private functions ---------------------------------------------------------*/
 
-/******************************************************************************/
-/*            Cortex-M3 Processor Exceptions Handlers                         */
-/******************************************************************************/
+  /******************************************************************************/
+  /*            Cortex-M3 Processor Exceptions Handlers                         */
+  /******************************************************************************/
 
-/**
-  * @brief  This function handles NMI exception.
-  * @param  None
-  * @retval None
-  */
+  /**
+	* @brief  This function handles NMI exception.
+	* @param  None
+	* @retval None
+	*/
 void NMI_Handler(void)
 {
 }
@@ -54,10 +54,10 @@ void NMI_Handler(void)
   */
 void HardFault_Handler(void)
 {
-  /* Go to infinite loop when Hard Fault exception occurs */
-  while (1)
-  {
-  }
+	/* Go to infinite loop when Hard Fault exception occurs */
+	while (1)
+	{
+	}
 }
 
 /**
@@ -67,10 +67,10 @@ void HardFault_Handler(void)
   */
 void MemManage_Handler(void)
 {
-  /* Go to infinite loop when Memory Manage exception occurs */
-  while (1)
-  {
-  }
+	/* Go to infinite loop when Memory Manage exception occurs */
+	while (1)
+	{
+	}
 }
 
 /**
@@ -80,10 +80,10 @@ void MemManage_Handler(void)
   */
 void BusFault_Handler(void)
 {
-  /* Go to infinite loop when Bus Fault exception occurs */
-  while (1)
-  {
-  }
+	/* Go to infinite loop when Bus Fault exception occurs */
+	while (1)
+	{
+	}
 }
 
 /**
@@ -93,10 +93,10 @@ void BusFault_Handler(void)
   */
 void UsageFault_Handler(void)
 {
-  /* Go to infinite loop when Usage Fault exception occurs */
-  while (1)
-  {
-  }
+	/* Go to infinite loop when Usage Fault exception occurs */
+	while (1)
+	{
+	}
 }
 
 /**
@@ -155,17 +155,16 @@ void SysTick_Handler(void)
   */
 void EXTI3_IRQHandler(void)
 {
-  if (EXTI_GetITStatus(EXTI_Line3) != RESET)
-  {
-    LED_On(0);
+	if (EXTI_GetITStatus(EXTI_Line3) != RESET)
+	{
+		LED_On(0);
+		DisplayContent("TimerPaused\n");
+		
+		DisplayContent("");
+		scanf("%d", &IsTimerStoped);
 
-    DisplayContent("TimerPaused\n");
-    
-    DisplayContent("");
-    scanf("%d", &IsTimerStoped);
-
-    EXTI_ClearITPendingBit(EXTI_Line3);
-  }
+		EXTI_ClearITPendingBit(EXTI_Line3);
+	}
 }
 
 /**
@@ -175,13 +174,13 @@ void EXTI3_IRQHandler(void)
   */
 void EXTI4_IRQHandler(void)
 {
-  if (EXTI_GetITStatus(EXTI_Line4) != RESET)
-  {
-    LED_On(1);
-    Delay(0xffff);
-    LED_Off(1);
-    EXTI_ClearITPendingBit(EXTI_Line4);
-  }
+	if (EXTI_GetITStatus(EXTI_Line4) != RESET)
+	{
+		LED_On(1);
+		Delay(0xffff);
+		LED_Off(1);
+		EXTI_ClearITPendingBit(EXTI_Line4);
+	}
 }
 
 /**
@@ -191,11 +190,11 @@ void EXTI4_IRQHandler(void)
   */
 void TIM2_IRQHandler()
 {
-	if(TIM_GetITStatus(TIM2, TIM_IT_Update) == SET)
+	if (TIM_GetITStatus(TIM2, TIM_IT_Update) == SET)
 	{
 		LED_On(0);
 		LED_Off(0);
-    MinuesOneSecond(&TimeToCount);
+		TimerHandler();
 		TIM_ClearITPendingBit(TIM2, TIM_IT_Update);
 	}
 }
@@ -203,4 +202,4 @@ void TIM2_IRQHandler()
   * @}
   */
 
-/******************* (C) COPYRIGHT 2011 STMicroelectronics *****END OF FILE****/
+  /******************* (C) COPYRIGHT 2011 STMicroelectronics *****END OF FILE****/

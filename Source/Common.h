@@ -10,6 +10,10 @@
 #include "misc.h"
 #include <stdio.h>
 
+#define TRUE 1
+#define FALSE 0
+typedef int BOOL;
+
 typedef struct
 {
     int Hour;
@@ -19,7 +23,7 @@ typedef struct
 
 extern int IsTimerStoped;
 extern Time TimeToCount;
-void (* TimerHandler)(void);
+extern void (* TimerHandler)(void);
 
 void AddOneSecond(Time * timePtr);
 void MinuesOneSecond(Time * timePtr);

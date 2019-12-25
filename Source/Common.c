@@ -2,6 +2,7 @@
 
 Time TimeToCount = {0, 0, 0};
 int IsTimerStoped = 0;
+void (* TimerHandler)();
 int IsTimeZero(Time time)
 {
     if (TimeToCount.Hour == 0 &&

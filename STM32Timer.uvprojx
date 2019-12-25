@@ -447,6 +447,16 @@
               <FileType>5</FileType>
               <FilePath>.\Source\stm32f10x_it.h</FilePath>
             </File>
+            <File>
+              <FileName>TIM.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Source\TIM.h</FilePath>
+            </File>
+            <File>
+              <FileName>TIM.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Source\TIM.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
