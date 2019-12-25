@@ -344,3 +344,6 @@ Objects/
 
 #列表文件（我想是符号表吧？） 
 Listings/
+
+#CMake
+Out/

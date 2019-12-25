@@ -1,0 +1,22 @@
+﻿{
+  "environments": [
+    {
+      "environment": "ARMCompiler"
+      //"BuildDir": "${env.USERPROFILE}\\CMakeBuilds\\${workspaceHash}\\build"
+    }
+  ],
+  "configurations": [
+    {
+      "name": "STM32F103ZE",
+      "generator": "Ninja",
+      "configurationType": "Debug",
+      "buildRoot": "${projectDir}\\out\\build\\${name}",
+      "installRoot": "${projectDir}\\out\\install\\${name}",
+      "cmakeCommandArgs": "",
+      "buildCommandArgs": "-v",
+      "ctestCommandArgs": "",
+      //"inheritEnvironments": [ "msvc_x86_x64" ],
+      "variables": []
+    }
+  ]
+}

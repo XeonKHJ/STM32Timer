@@ -161,6 +161,7 @@ void EXTI3_IRQHandler(void)
 
     DisplayContent("TimerPaused\n");
     
+    DisplayContent("");
     scanf("%d", &IsTimerStoped);
 
     EXTI_ClearITPendingBit(EXTI_Line3);

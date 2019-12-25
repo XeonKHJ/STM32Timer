@@ -6,7 +6,8 @@
                 "${workspaceFolder}/**",
                 "C:/Users/redal/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.3.0/Device/**",
                 "C:/Users/redal/AppData/Local/Arm/Packs/ARM/CMSIS/5.5.1/CMSIS/Core/Include",
-                "C:/Development/Keil_v5/ARM/ARMCC/include"
+                "C:/Development/Keil_v5/ARM/ARMCC/include",
+                "C:/Keil_v5/ARM/ARMCC/include"
             ],
             "defines": [
                 "_DEBUG",
