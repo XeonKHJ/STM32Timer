@@ -162,7 +162,7 @@ void EXTI3_IRQHandler(void)
 		
 		DisplayContent("");
 		scanf("%d", &IsTimerStoped);
-
+		LED_Off(0);
 		EXTI_ClearITPendingBit(EXTI_Line3);
 	}
 }
@@ -195,6 +195,10 @@ void TIM2_IRQHandler()
 		LED_On(0);
 		LED_Off(0);
 		TimerHandler();
+		if(TimeToCount.Second == 0 && TimeToCount.Hour == 0 && TimeToCount.Minute == 0)
+		{
+			IsTimerStoped = TRUE;
+		}
 		TIM_ClearITPendingBit(TIM2, TIM_IT_Update);
 	}
 }

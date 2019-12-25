@@ -13,24 +13,29 @@ void Timer(void);
 int GetSelectedFuntion(void);
 void StartTimer(void);
 void StopTimer(void);
+Time GetInitialTime(void);
 
 int main()
 {
 	BOOL toExit = FALSE;
 	IsTimerStoped = TRUE;
 	InitiallizeComponents();
-	ShowMenu();
-	int functionNo = GetSelectedFuntion();
+	
 	while (!toExit)
 	{
 		if (!IsTimerStoped)
 		{
 			StartTimer();
-			while (TRUE);
+			while (!IsTimerStoped);
 		}
+		StopTimer();
+		
+		ShowMenu();
+		int functionNo = GetSelectedFuntion();
 		switch (functionNo)
 		{
 		case 1:
+			TimeToCount = GetInitialTime();
 			TimerHandler = CountDown;
 			break;
 		case 2:
@@ -48,13 +53,12 @@ int main()
 
 void StartTimer()
 {
-	TIM2_Config();
-	TIM_Cmd(TIM2, ENABLE);
+	TIM_ITConfig(TIM2, TIM_IT_Update, ENABLE);
 }
 
 void StopTimer()
 {
-	TIM_Cmd(TIM2, DISABLE);
+	TIM_ITConfig(TIM2, TIM_IT_Update, DISABLE);
 }
 
 int GetSelectedFuntion()
@@ -70,11 +74,12 @@ void InitiallizeComponents()
 	LED_Config();
 	KEY_Config();
 	USART1_Config();
+	TIM2_Config();
 
 	//开中断
-	NVIC_Config(TIM2_IRQn, 2, 0);
-	NVIC_Config(EXTI3_IRQn, 0, 0);
-	NVIC_Config(EXTI4_IRQn, 1, 0);
+	NVIC_Config(TIM2_IRQn, 2, 0, ENABLE);
+	NVIC_Config(EXTI3_IRQn, 0, 0, ENABLE);
+	NVIC_Config(EXTI4_IRQn, 1, 0, ENABLE);
 	
 
 	//配置KEY的中断
@@ -101,7 +106,7 @@ Time GetInitialTime()
 
 void CountDown()
 {
-	while (!IsTimerStoped && !IsTimeZero(TimeToCount))
+	if (!IsTimerStoped && !IsTimeZero(TimeToCount))
 	{
 		MinuesOneSecond(&TimeToCount);
 	}
