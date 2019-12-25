@@ -27,7 +27,7 @@ int main()
             TimerHandler = CountDown;
             break;
         case 2:
-            Timer();
+            TimerHandler = Timer;
             break;
         }
         while(!IsTimerStoped);
@@ -41,12 +41,12 @@ int main()
 
 void StartTimer()
 {
-
+    TIM_Cmd(TIM2, ENABLE);
 }
 
 void StopTimer()
 {
-    
+    TIM_Cmd(TIM2, DISABLE);
 }
 
 int GetSelectedFuntion()
@@ -65,7 +65,8 @@ void InitiallizeComponents()
     //开中断
     NVIC_Config(EXTI3_IRQn, 0, 0);
     NVIC_Config(EXTI4_IRQn, 1, 0);
-
+    NVIC_Config(TIM2_IRQn, 2, 0);
+    
     //配置KEY的中断
     KEY_IntrConfig();
 }

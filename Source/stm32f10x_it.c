@@ -130,7 +130,6 @@ void PendSV_Handler(void)
 }
 #endif
 
-void (*TimerHandler)(void);
 /**
   * @brief  This function handles SysTick Handler.
   * @param  None
@@ -182,6 +181,22 @@ void EXTI4_IRQHandler(void)
     LED_Off(1);
     EXTI_ClearITPendingBit(EXTI_Line4);
   }
+}
+
+/**
+  * @brief  继续按钮
+  * @param  None
+  * @retval None
+  */
+void TIM2_IRQHandler()
+{
+	if(TIM_GetITStatus(TIM2, TIM_IT_Update) == SET)
+	{
+		LED_On(0);
+		LED_Off(0);
+    MinuesOneSecond(&TimeToCount);
+		TIM_ClearITPendingBit(TIM2, TIM_IT_Update);
+	}
 }
 /**
   * @}

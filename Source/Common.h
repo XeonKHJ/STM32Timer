@@ -6,6 +6,7 @@
 #include "stm32f10x_usart.h"
 #include "stm32f10x_rcc.h"
 #include "stm32f10x_exti.h"
+#include "stm32f10x_tim.h"
 #include "misc.h"
 #include <stdio.h>
 
@@ -18,6 +19,7 @@ typedef struct
 
 extern int IsTimerStoped;
 extern Time TimeToCount;
+void (* TimerHandler)(void);
 
 void AddOneSecond(Time * timePtr);
 void MinuesOneSecond(Time * timePtr);
