@@ -68,7 +68,41 @@ void DisplayContent(char * content)
     printf(content);
 }
 
-void TimeToString(Time time, char* outputString)
-{
-	
+void TimeToString(Time time, char* time_char) {
+	char temp;
+	int p = time.Hour / 10;
+	p = p + 0x30;
+	temp = p;
+	time_char[0] = temp;
+
+	p = time.Hour % 10;
+	p = p + 0x30;
+	temp = p;
+	time_char[1] = temp;
+
+	time_char[2] = ':';
+
+	p = time.Minute / 10;
+	p = p + 0x30;
+	temp = p;
+	time_char[3] = temp;
+
+	p = time.Minute % 10;
+	p = p + 0x30;
+	temp = p;
+	time_char[4] = temp;
+
+	time_char[5] = ':';
+
+	p = time.Second / 10;
+	p = p + 0x30;
+	temp = p;
+	time_char[6] = temp;
+
+	p = time.Second % 10;
+	p = p + 0x30;
+	temp = p;
+	time_char[7] = temp;
+
+	time_char[8] = 0;
 }

@@ -49,7 +49,7 @@ int main()
 		}
 		IsTimerStoped = FALSE;
 	}
-
+	DisplayContent("程序退出。\n");
 	return 0;
 }
 
@@ -82,7 +82,6 @@ void InitiallizeComponents()
 	NVIC_Config(TIM2_IRQn, 2, 0, ENABLE);
 	NVIC_Config(EXTI3_IRQn, 0, 0, ENABLE);
 	NVIC_Config(EXTI4_IRQn, 1, 0, ENABLE);
-	
 
 	//配置KEY的中断
 	KEY_IntrConfig();
@@ -90,7 +89,7 @@ void InitiallizeComponents()
 
 void ShowMenu()
 {
-	char menu[] = "STM32Timer\n1. CountDown\n2. Timer\nOther. Exit\n";
+	char menu[] = "STM32Timer\n1. 倒计时\n2. 正计时\n其他：退出\n";
 	DisplayContent(menu);
 }
 
