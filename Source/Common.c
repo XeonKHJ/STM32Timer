@@ -1,4 +1,5 @@
 #include "Common.h"
+#include "stdlib.h"
 
 Time TimeToCount = {0, 0, 0};
 int IsTimerStoped = 0;
@@ -65,4 +66,9 @@ void InitializeTime(Time * timePtr)
 void DisplayContent(char * content)
 {
     printf(content);
+}
+
+void TimeToString(Time time, char* outputString)
+{
+	
 }

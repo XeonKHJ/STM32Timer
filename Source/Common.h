@@ -30,4 +30,5 @@ void MinuesOneSecond(Time * timePtr);
 void DisplayContent(char * content);
 void InitializeTime(Time * timePtr);
 int IsTimeZero(Time time);
+void TimeToString(Time time, char * outputString);
 #endif

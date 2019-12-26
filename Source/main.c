@@ -20,7 +20,9 @@ int main()
 	BOOL toExit = FALSE;
 	IsTimerStoped = TRUE;
 	InitiallizeComponents();
-	
+	LED_On_all();
+	Delay(0xFFFFFF);
+	LED_Off_all();
 	while (!toExit)
 	{
 		if (!IsTimerStoped)

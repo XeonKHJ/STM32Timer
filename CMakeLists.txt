@@ -12,7 +12,8 @@ project(STM32Timer)
 # 将源代码添加到此项目的可执行文件。
 add_executable (STM32Timer "./Source/main.c" "./Source/key.c" "./Source/key.h" "./Source/led.c" "./Source/led.h" "./Source/exti.h" "./Source/exti.c"
                 "./Source/stm32f10x_it.c" "./Source/stm32f10x_it.c" "./Source/TIM.c" "./Source/TIM.h"
-				"./Source/usart1.h" "./Source/usart1.c")
+				"./Source/usart1.h" "./Source/usart1.c" "./Source/font.h" "./Source/LCD.h" "./Source/sys.h" "./Source/sys.c"
+				"./Source/Common.c" "./Source/Common.h")
 
 include_directories ("C:/Keil_v5/ARM/ARMCC/include" 
                      "C:/Users/redal/AppData/Local/Arm/Packs/ARM/CMSIS/5.5.1/CMSIS/Core/Include" 
