@@ -1,6 +1,6 @@
 #include "beep.h"
 
-void BEEP_Init()
+void BEEP_Config()
 {
 
 	GPIO_InitTypeDef  GPIO_InitStructure;
@@ -12,5 +12,15 @@ void BEEP_Init()
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
 	GPIO_Init(GPIOB, &GPIO_InitStructure);
 
+	GPIO_ResetBits(GPIOB, GPIO_Pin_8);
+}
+
+void BEEP_On()
+{
+	GPIO_SetBits(GPIOB, GPIO_Pin_8);
+}
+
+void BEEP_Off()
+{
 	GPIO_ResetBits(GPIOB, GPIO_Pin_8);
 }

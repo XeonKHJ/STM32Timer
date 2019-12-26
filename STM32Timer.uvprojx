@@ -457,6 +457,11 @@
               <FileType>1</FileType>
               <FilePath>.\Source\TIM.c</FilePath>
             </File>
+            <File>
+              <FileName>beep.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Source\beep.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

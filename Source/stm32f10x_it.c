@@ -206,6 +206,9 @@ void TIM2_IRQHandler()
 		if(TimeToCount.Second == 0 && TimeToCount.Hour == 0 && TimeToCount.Minute == 0)
 		{
 			IsTimerStoped = TRUE;
+      BEEP_On();
+      Delay(0xFFFF);
+      BEEP_Off();
 		}
 		TIM_ClearITPendingBit(TIM2, TIM_IT_Update);
 	}

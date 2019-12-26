@@ -4,6 +4,7 @@
 #include "usart1.h"
 #include "exti.h"
 #include "TIM.h"
+#include "beep.h"
 
 void CountDown(void);
 void InitiallizeComponents(void);
@@ -77,6 +78,7 @@ void InitiallizeComponents()
 	KEY_Config();
 	USART1_Config();
 	TIM2_Config();
+    BEEP_Config();
 
 	//开中断
 	NVIC_Config(TIM2_IRQn, 2, 0, ENABLE);
