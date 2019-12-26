@@ -199,6 +199,10 @@ void TIM2_IRQHandler()
 		TimeToString(TimeToCount, timeString);
 		DisplayContent(timeString);
 		DisplayContent("\n");
+		LED_On_all();
+		Delay(0xAFFF);
+		LED_Off_all();
+
 		if(TimeToCount.Second == 0 && TimeToCount.Hour == 0 && TimeToCount.Minute == 0)
 		{
 			IsTimerStoped = TRUE;

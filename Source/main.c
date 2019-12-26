@@ -89,19 +89,29 @@ void InitiallizeComponents()
 
 void ShowMenu()
 {
-	char menu[] = "STM32Timer\n1. 倒计时\n2. 正计时\n其他：退出\n";
+	char menu[] = "STM32Timer \n1. 倒计时 \n2. 正计时 \n其他：退出 \n";
 	DisplayContent(menu);
 }
 
 Time GetInitialTime()
 {
-	Time initialTime = { 0, 0, 0 };
-	printf("Enter second \n");
-	scanf("%d", &(initialTime.Second));
-	printf("Enter minute \n");
-	scanf("%d", &(initialTime.Minute));
-	printf("Enter hour \n");
-	scanf("%d", &(initialTime.Hour));
+	Time initialTime = { 60, 60, 60 };
+	
+	while (initialTime.Second >= 60)
+	{
+		printf("Enter second \n");
+		scanf("%d", &(initialTime.Second));
+	}
+	while (initialTime.Minute >= 60)
+	{
+		printf("Enter minute \n");
+		scanf("%d", &(initialTime.Minute));
+	}
+	while (initialTime.Hour >= 60)
+	{
+		printf("Enter hour \n");
+		scanf("%d", &(initialTime.Hour));
+	}
 	return initialTime;
 }
 
