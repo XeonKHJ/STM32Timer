@@ -207,8 +207,20 @@ void TIM2_IRQHandler()
 		{
 			IsTimerStoped = TRUE;
       BEEP_On();
-      Delay(0xFFFF);
+      Delay(0xFFFFF);
       BEEP_Off();
+			Delay(0xFFFFF);
+			BEEP_On();
+			Delay(0xFFFFF);
+			BEEP_Off();
+			Delay(0xFFFFF);
+			BEEP_On();
+			Delay(0xFFFFF);
+			BEEP_Off();
+			Delay(0xFFFFF);
+			BEEP_On();
+			Delay(0xFFFFF);
+			BEEP_Off();
 		}
 		TIM_ClearITPendingBit(TIM2, TIM_IT_Update);
 	}
