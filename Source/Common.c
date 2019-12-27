@@ -26,7 +26,7 @@ void MinuesOneSecond(Time * timePtr)
     }
     else if (timePtr->Minute != 0)
     {
-        (timePtr->Minute) -= 1;
+        (timePtr->Minute) -= 1;  
         (timePtr->Second) = 59;
     }
     else if (timePtr->Hour != 0)
