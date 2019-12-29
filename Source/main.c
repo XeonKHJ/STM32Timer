@@ -50,7 +50,7 @@ int main()
 		}
 		IsTimerStoped = FALSE;
 	}
-	DisplayContent("程序退出。\n");
+	DisplayContent("Program Exit。\n");
 	return 0;
 }
 
@@ -91,7 +91,7 @@ void InitiallizeComponents()
 
 void ShowMenu()
 {
-	char menu[] = "STM32Timer \n1. 倒计时 \n2. 正计时 \n其他：退出 \n";
+	char menu[] = "STM32Timer \n1. Countdown \n2. Timer \nOther. Exit \n";
 	DisplayContent(menu);
 }
 
